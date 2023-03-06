@@ -38,7 +38,13 @@ Se utilizará OpenStreetMap o la técnica revisada de generar automáticamente e
 
 <p align="center"><a href="https://offhouse.vercel.app" target="_blank"><img src="https://github.com/Miguel-EMC/CiclistasFinal/blob/imagenes/app/src/main/res/drawable/mapacicli.jpg" width="300" alt="Laravel Logo"></a></p>
 
+- Descarga de apk
 
+Se realiza la apk del proyecto para poder abrirla en un dispositivo móvil
+<p align="center"><a href="https://offhouse.vercel.app" target="_blank"><img src="https://github.com/Miguel-EMC/CiclistasFinal/blob/imagenes/app/src/main/res/drawable/descarga%20apk.jpg" width="300" alt="Laravel Logo"></a></p>
+
+Y por último se tiene la app corriendo
+<p align="center"><a href="https://offhouse.vercel.app" target="_blank"><img src="https://github.com/Miguel-EMC/CiclistasFinal/blob/imagenes/app/src/main/res/drawable/apk.jpg" width="300" alt="Laravel Logo"></a></p>
 
 ## Créditos
 
