@@ -18,7 +18,7 @@ Aquí se muestra la funcionalidad que tiene el sistema presentado
 ## Proceso
 
 - Sistema de Login
-- 
+
 Se ha desarrollado un sistema de login para validar a los usuarios. Este sistema garantiza la seguridad de los datos y proporciona una forma segura y confiable de acceder a la aplicación.
 
 - Sistema de Administración 
