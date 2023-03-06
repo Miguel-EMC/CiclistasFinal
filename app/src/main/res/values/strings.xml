@@ -11,4 +11,6 @@
     <string name="name">Name</string>
     <string name="last_name">Last name</string>
     <string name="address">Address</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="title_activity_maps12">Maps1Activity2</string>
 </resources>

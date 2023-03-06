@@ -1,31 +1,22 @@
 package com.example.ciclistasfinal;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.common.api.ApiException;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthCredential;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.GoogleAuthProvider;
 
 public class MainActivity extends AppCompatActivity {
+CardView ubicacionesCicl,registro;
     FirebaseAuth auth;
     Button button;
     TextView textView;
@@ -56,5 +47,48 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
+        //muestre el titulo
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.txt_titulo);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
+         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+         //metodos para abrir paginas
+        //metodo admin y castear
+        registro=(CardView) findViewById(R.id.idcard1);
+        ubicacionesCicl=(CardView) findViewById(R.id.idcard2);
+
+
+        //llaammos al metodo
+        getubicacionesCicl();
+        geRegistro();
     }
-}
+
+    private void geRegistro() {
+        registro.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(MainActivity.this, CiclistaActivity.class);
+                startActivity(i);
+            }
+        });
+    }
+
+    private void getubicacionesCicl() {
+        ubicacionesCicl.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(MainActivity.this, MapsActivity.class);
+                startActivity(i);
+            }
+
+            });
+        }
+
+
+    }
+
+
+
