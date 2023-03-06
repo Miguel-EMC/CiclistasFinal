@@ -9,6 +9,7 @@ El proyecto de desarrollo de software "El Búho" (Sistema Móvil) busca implemen
 ## Manual de usuario
 Aquí se muestra la funcionalidad que tiene el sistema presentado
 [Manual de instalación](https://www.youtube.com/watch?v=h8H4d59ng8E)
+
 ## Herramientas utilizadas 
 - Firebase
 - Express js
