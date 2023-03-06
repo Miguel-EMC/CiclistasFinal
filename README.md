@@ -17,7 +17,7 @@ Aquí se muestra la funcionalidad que tiene el sistema presentado
 - 
 ## Proceso
 
-Antes de poder hacer peticiones a la API REST, debes obtener un token de acceso válido. Puedes hacerlo a través de la autenticación con tu nombre de usuario y contraseña.
+
 
 
 
