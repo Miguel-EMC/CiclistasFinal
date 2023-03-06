@@ -10,6 +10,9 @@ El proyecto de desarrollo de software "El Búho" (Sistema Móvil) busca implemen
 Aquí se muestra la funcionalidad que tiene el sistema presentado
 [Manual de instalación](https://www.youtube.com/watch?v=h8H4d59ng8E)
 
+## Proceso
+
+Antes de poder hacer peticiones a la API REST, debes obtener un token de acceso válido. Puedes hacerlo a través de la autenticación con tu nombre de usuario y contraseña.
 
 ## Autenticación
 
