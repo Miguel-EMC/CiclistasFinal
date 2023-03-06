@@ -69,14 +69,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.addMarker(markerOptions);
 
 
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(Quito));
-        CameraPosition cameraPosition = new CameraPosition.Builder()
-                .target(Quito)
-                .zoom(14)
-                .bearing(90)
-                .tilt(45)
-                .build();
-        mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
@@ -98,6 +91,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             public void onLocationChanged(Location location) {
 
                     LatLng miUbicacion = new LatLng(location.getLatitude(), location.getLongitude());
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(miUbicacion));
+                CameraPosition cameraPosition = new CameraPosition.Builder()
+                        .target(miUbicacion)
+                        .zoom(14)
+                        .bearing(90)
+                        .tilt(45)
+                        .build();
+                mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
                     Bitmap icon = BitmapFactory.decodeResource(getResources(), R.drawable.ciclista);
                     int width = icon.getWidth() / 8; // Ancho original del icono / 2
                     int height = icon.getHeight() / 8; // Altura original del icono / 2
