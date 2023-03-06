@@ -29,7 +29,7 @@ Se ha desarrollado un sistema de login para validar a los usuarios. Este sistema
 - Sistema de Administración 
 
 Se ha creado un sistema de administración para que los administradores puedan agregar, eliminar o desactivar usuarios. Esto proporciona un mayor control y flexibilidad en la gestión del sistema.
-<p align="center"><img src="https://github.com/Miguel-EMC/CiclistasFinal/blob/imagenes/app/src/main/res/drawable/admin%20table.PNG" width="300" alt="Laravel Logo"></p>
+<p align="center"><img src="https://github.com/Miguel-EMC/CiclistasFinal/blob/imagenes/app/src/main/res/drawable/admin%20table.PNG" width="600" alt="Laravel Logo"></p>
 
 ![image](https://user-images.githubusercontent.com/74844624/223278511-b823f58a-af0c-4396-b4f8-de4dcb61694d.png)
 
