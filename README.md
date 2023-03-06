@@ -17,8 +17,15 @@ Aquí se muestra la funcionalidad que tiene el sistema presentado
 - 
 ## Proceso
 
+- Sistema de Login
+Se ha desarrollado un sistema de login para validar a los usuarios. Este sistema garantiza la seguridad de los datos y proporciona una forma segura y confiable de acceder a la aplicación.
 
+- Sistema de Administración 
 
+Se ha creado un sistema de administración para que los administradores puedan agregar, eliminar o desactivar usuarios. Esto proporciona un mayor control y flexibilidad en la gestión del sistema.
+
+- Geolocalización en tiempo real
+Se utilizará OpenStreetMap o la técnica revisada de generar automáticamente el enlace de la geolocalización a medida que cambie la posición del ciclista. De esta manera, los usuarios de la aplicación podrán ver la ubicación exacta de los demás ciclistas en todo momento.
 
 
 
