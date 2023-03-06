@@ -29,9 +29,18 @@ Se ha desarrollado un sistema de login para validar a los usuarios. Este sistema
 - Sistema de Administración 
 
 Se ha creado un sistema de administración para que los administradores puedan agregar, eliminar o desactivar usuarios. Esto proporciona un mayor control y flexibilidad en la gestión del sistema.
-<p align="center"><img src="https://github.com/Miguel-EMC/CiclistasFinal/blob/imagenes/app/src/main/res/drawable/admin%20table.PNG" width="600" alt="Laravel Logo"></p>
 
+Página principal del Administrador
+![image](https://user-images.githubusercontent.com/74844624/223279069-2bd7c4ad-e0f8-4b44-8ca8-a603d95b4827.png)
+
+Buscador de tabla 
 ![image](https://user-images.githubusercontent.com/74844624/223278511-b823f58a-af0c-4396-b4f8-de4dcb61694d.png)
+
+Crear una cuenta ciclista o administrador
+![image](https://user-images.githubusercontent.com/74844624/223279100-420e28cc-d7b7-41ec-b86d-7a5066172371.png)
+
+Prohibido acceder para usuarios que no sean administrador
+![image](https://user-images.githubusercontent.com/74844624/223279112-9df36de9-4651-466d-a6d4-700fff08a43c.png)
 
 
 - Geolocalización en tiempo real
