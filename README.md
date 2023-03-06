@@ -1,4 +1,4 @@
-<p align="center"><a href="https://offhouse.vercel.app" target="_blank"><img src="https://user-images.githubusercontent.com/74844624/217299705-56ad3b15-b3cd-46c6-ab88-d3aa0d9f67be.png" width="100" alt="Laravel Logo"></a></p>
+<p align="center"><a href="https://offhouse.vercel.app" target="_blank"><img src="[https://user-images.githubusercontent.com/74844624/217299705-56ad3b15-b3cd-46c6-ab88-d3aa0d9f67be.png](https://github.com/Miguel-EMC/CiclistasFinal/blob/master/app/src/main/res/drawable/logo.png)" width="100" alt="Laravel Logo"></a></p>
 
 # OFFHOUSE - Frontend
 
