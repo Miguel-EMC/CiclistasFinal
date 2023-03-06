@@ -36,7 +36,7 @@ Página principal del Administrador
 Buscador de tabla 
 ![image](https://user-images.githubusercontent.com/74844624/223278511-b823f58a-af0c-4396-b4f8-de4dcb61694d.png)
 
-Crear una cuenta ciclista o administrador
+Crear una cuenta ciclista o administrador </br>
 ![image](https://user-images.githubusercontent.com/74844624/223279100-420e28cc-d7b7-41ec-b86d-7a5066172371.png)
 
 Prohibido acceder para usuarios que no sean administrador
