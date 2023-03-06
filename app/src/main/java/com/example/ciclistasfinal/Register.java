@@ -27,7 +27,7 @@ public class Register extends AppCompatActivity {
     TextInputEditText editTextEmail, editTextPassword, editTextName, editTextLastName,editTextAddress;
     Button buttonReg;
     FirebaseAuth mAuth;
-    FirebaseFirestore mFirestore;
+
 
     ProgressBar progressBar;
     TextView textView;
