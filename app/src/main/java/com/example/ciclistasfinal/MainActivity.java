@@ -17,6 +17,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -25,6 +30,9 @@ import androidx.core.content.ContextCompat;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import io.github.muddz.styleabletoast.StyleableToast;
 
@@ -76,6 +84,38 @@ CardView ubicacionesCicl,registro;
                     public void onLocationChanged(Location location) {
                         location.getLatitude();
                         location.getLongitude();
+
+                        Map<String, Object> positions = new HashMap<>();
+                        positions.put("latitud",    location.getLatitude());
+                        positions.put("longitud",  location.getLongitude());
+
+
+                        Log.d("TAG", "NEW");
+
+                        FirebaseFirestore db = FirebaseFirestore.getInstance();
+                        db.collection("users")
+                                .document(user.getUid())
+                                .collection("position")
+                                .document(user.getUid()+"Position")
+                                .set(positions)
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void unused) {
+                                        Toast.makeText(MainActivity.this, "Account Saved.", Toast.LENGTH_SHORT).show();
+                                        //Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                        //startActivity(intent);
+                                        //finish();
+                                    }
+                                })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Toast.makeText(MainActivity.this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+
+
+
                     }
 
                     @Override
