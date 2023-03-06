@@ -31,47 +31,7 @@
         app:columnCount="2"
         app:rowCount="2"
         android:layout_below="@+id/r1">
-        <androidx.cardview.widget.CardView
-            android:id="@+id/idcard1"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="6dp"
-            android:background="@color/colorPrimaryDark"
-            app:layout_columnWeight="1"
-            app:layout_rowWeight="1"
-            android:foreground="?selectableItemBackground">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal|center_vertical"
-                android:orientation="vertical">
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="90dp"
-                    android:layout_gravity="center_horizontal"
-                    android:src="@drawable/ciclista"
-                    ></ImageView>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_centerHorizontal="true"
-                    android:layout_gravity="center_horizontal"
-                    android:textAlignment="center"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:textColor="#067bf0"
-                    android:layout_centerInParent="true"
-                    android:text="Registro"></TextView>
 
-
-            </LinearLayout>
-
-
-        </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
             android:id="@+id/idcard2"
             android:layout_width="0dp"
@@ -114,6 +74,7 @@
 
         </androidx.cardview.widget.CardView>
     </androidx.gridlayout.widget.GridLayout>
+
     <androidx.gridlayout.widget.GridLayout
         android:layout_width="match_parent"
         android:layout_marginTop="540dp"
@@ -135,7 +96,15 @@
             android:id="@+id/logout"
             android:layout_width="match_parent"
             />
+        <Button
+            android:text="@string/inicio"
+            android:id="@+id/inicio"
+            android:layout_width="match_parent"
+            />
     </androidx.gridlayout.widget.GridLayout>
+
+
+
 </RelativeLayout>
 
 

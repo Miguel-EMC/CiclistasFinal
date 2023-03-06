@@ -34,10 +34,6 @@
             android:value="AIzaSyBGk-18Oofubbjn915nSWl9HX6ExXV_j2Q" />
 
         <activity
-            android:name=".CiclistaActivity"
-            android:exported="true"
-            android:label="@string/title_activity_maps" />
-        <activity
             android:name=".Register"
             android:exported="false"
             android:theme="@style/Theme.Material3.Dark.NoActionBar" />
