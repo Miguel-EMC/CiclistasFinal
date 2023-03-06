@@ -59,25 +59,27 @@ Y por último se tiene la app corriendo
 
 ### Código Fuente
 
+- Iconos de mapa
 ![image](https://user-images.githubusercontent.com/74844624/223280537-01abedbc-eb08-4e83-b9d7-58ba2cf00da7.png)
 
+- Título de la Aplicación
 ![image](https://user-images.githubusercontent.com/74844624/223280648-8f12aa11-e4b9-423d-a13c-adba59bfb64d.png)
 
+-Vista y Cards view de ubicaciones
 ![image](https://user-images.githubusercontent.com/74844624/223280720-8c054f54-5450-4b3a-a2f5-7831a1daf73c.png)
 
+- Vista de Login
 ![image](https://user-images.githubusercontent.com/74844624/223280728-b63be4bf-6463-4fe9-b9f6-110fca61112e.png)
 
+-Carga de iconos de mapa
 ![image](https://user-images.githubusercontent.com/74844624/223280733-823e86c2-13f3-4393-8b5e-345a599a6088.png)
 
+- Código de colores de la aplicación
 ![image](https://user-images.githubusercontent.com/74844624/223280747-985d534f-cbbf-4a4c-a62c-09c0a15c905f.png)
 
+- Permisos para acceder al mapa
 ![image](https://user-images.githubusercontent.com/74844624/223280758-ee0bc358-9fbf-4d22-8ab2-dc07cab6e63d.png)
 
-![image](https://user-images.githubusercontent.com/74844624/223280772-026e4cc9-d8d4-4b9a-8bb3-5bd65012f3eb.png)
-
-![image](https://user-images.githubusercontent.com/74844624/223280778-7e445449-daea-49f5-915e-ddc93a855f21.png)
-
-![image](https://user-images.githubusercontent.com/74844624/223280786-f42d5b14-17f1-4982-a17d-2277bc515ceb.png)
 
 
 
