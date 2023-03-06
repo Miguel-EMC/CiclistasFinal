@@ -9,8 +9,10 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
@@ -24,17 +26,35 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    FirebaseAuth auth;
+    FirebaseUser user;
+    FirebaseFirestore db;
     private LocationManager locationManager;
     private DatabaseReference databaseReference;
     private ArrayList<Marker> temporalRealTimeMarkers = new ArrayList<>();
@@ -43,6 +63,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        Log.w("TAG", "INIT MAP");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
@@ -50,6 +72,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         databaseReference = FirebaseDatabase.getInstance().getReference();
+        auth = FirebaseAuth.getInstance();
+        user = auth.getCurrentUser();
+        db = FirebaseFirestore.getInstance();
     }
 
 
@@ -86,84 +111,134 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.getUiSettings().setMyLocationButtonEnabled(false);
 
         LocationManager locationManager = (LocationManager) MapsActivity.this.getSystemService(Context.LOCATION_SERVICE);
-        LocationListener locationListener = new LocationListener() {
-            @Override
-            public void onLocationChanged(Location location) {
 
-                    LatLng miUbicacion = new LatLng(location.getLatitude(), location.getLongitude());
-                mMap.moveCamera(CameraUpdateFactory.newLatLng(miUbicacion));
-                CameraPosition cameraPosition = new CameraPosition.Builder()
-                        .target(miUbicacion)
-                        .zoom(14)
-                        .bearing(90)
-                        .tilt(45)
-                        .build();
-                mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+
+        int permiso = ContextCompat.checkSelfPermission(MapsActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION);
+
+
+        //FIRESTORE get current user position
+        final DocumentReference docRef = db.collection("users").document(user.getUid());
+        docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot snapshot,
+                                @Nullable FirebaseFirestoreException e) {
+                if (e != null) {
+                    Log.w("TAG", "Listen failed.", e);
+                    return;
+                }
+
+                if (snapshot != null && snapshot.exists()) {
+                    LatLng userLocation = new LatLng((Double) snapshot.getData().get("latitud"), (Double) snapshot.getData().get("longitud"));
+                    mMap.moveCamera(CameraUpdateFactory.newLatLng(userLocation));
+                    CameraPosition cameraPosition = new CameraPosition.Builder()
+                            .target(userLocation)
+                            .zoom(14)
+                            .bearing(90)
+                            .tilt(45)
+                            .build();
+                    mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
                     Bitmap icon = BitmapFactory.decodeResource(getResources(), R.drawable.ciclista);
                     int width = icon.getWidth() / 8; // Ancho original del icono / 2
                     int height = icon.getHeight() / 8; // Altura original del icono / 2
                     Bitmap scaledIcon = Bitmap.createScaledBitmap(icon, width, height, false);
                     MarkerOptions markerOptions = new MarkerOptions()
-                            .position(miUbicacion)
+                            .position(userLocation)
                             .title("Ciclista")
                             .icon(BitmapDescriptorFactory.fromBitmap(scaledIcon))
                             .anchor(0.5f, 0.5f); // Para centrar el icono en la ubicación
-                    mMap.addMarker(markerOptions);
-            }
+                   // mMap.addMarker(markerOptions);
 
-            @Override
-            public void onStatusChanged(String provider, int status, Bundle extras) {
-
-            }
-
-            @Override
-            public void onProviderEnabled(String provider) {
-
-            }
-
-            @Override
-            public void onProviderDisabled(String provider) {
-
-            }
-        };
-
-        int permiso = ContextCompat.checkSelfPermission(MapsActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION);
-
-        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
-
-        databaseReference.child("destinos").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(Marker dest:realTimaMarkers){
-                    dest.remove();
+                    Log.d("TAG", "Current data: " + snapshot.getData().get("latitud")+" : " + snapshot.getData().get("longitud"));
+                } else {
+                    Log.d("TAG", "Current data: null");
                 }
-                for(DataSnapshot snapshot: dataSnapshot.getChildren()){
-                    Destinos dt = snapshot.getValue(Destinos.class);
-                    Double latitud = dt.getLatitud();
-                    Double longitud = dt.getLongitud();
-                    String codigo = dt.getCodigo();
-                    String telefono = dt.getTelefono();
-
-                    String paquete = "No. Paquete " + codigo;
-                    String telefonoUno = "Tel. " + telefono;
-
-
-                    MarkerOptions markerOptions = new MarkerOptions();
-
-                    markerOptions.position(new LatLng(latitud, longitud)).title(paquete).snippet(telefonoUno);
-//                            .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_llegada));
-
-                    temporalRealTimeMarkers.add(mMap.addMarker(markerOptions));
-                }
-                realTimaMarkers.clear();
-                realTimaMarkers.addAll(temporalRealTimeMarkers);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
+
+        //all users firestore
+        db.collection("users").whereEqualTo("rol","ciclist")
+                .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                    @Override
+                    public void onEvent(@Nullable QuerySnapshot value,
+                                        @Nullable FirebaseFirestoreException e) {
+                        if (e != null) {
+                            Log.w("TAG", "Listen failed.", e);
+                            return;
+                        }
+
+
+
+                        for (DocumentChange dc : value.getDocumentChanges()) {
+                            switch (dc.getType()) {
+                                case ADDED:
+                                    Log.d("TAG", "New city: " );
+                                    break;
+                                case MODIFIED:
+                                    for(Marker dest:realTimaMarkers){
+                                        dest.remove();
+                                    }
+                                    Log.d("TAG", "Modified city: " );
+                                    break;
+                                case REMOVED:
+                                    Log.d("TAG", "Removed city: " );
+                                    break;
+                            }
+                        }
+
+
+
+
+                        for (QueryDocumentSnapshot doc : value) {
+                            if (doc.get("name") != null) {
+                                Double latitud = (Double) doc.get("latitud");
+                                Double longitud = (Double) doc.get("longitud");
+                                String name = (String) doc.get("name");
+                                String lastName = (String) doc.get("lastName");
+                                MarkerOptions markerOptions = new MarkerOptions();
+                                if( doc.getId().equals(user.getUid()) ){
+                                    LatLng userLocation = new LatLng(latitud,longitud);
+                                    Log.w("MY USER", "MARKET."+ doc.getId());
+                                    mMap.moveCamera(CameraUpdateFactory.newLatLng(userLocation));
+                                    CameraPosition cameraPosition = new CameraPosition.Builder()
+                                            .target(userLocation)
+                                            .zoom(14)
+                                            .bearing(90)
+                                            .tilt(45)
+                                            .build();
+                                    mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+                                    Bitmap icon = BitmapFactory.decodeResource(getResources(), R.drawable.ciclista);
+                                    int width = icon.getWidth() / 8; // Ancho original del icono / 2
+                                    int height = icon.getHeight() / 8; // Altura original del icono / 2
+                                    Bitmap scaledIcon = Bitmap.createScaledBitmap(icon, width, height, false);
+                                    markerOptions
+                                            .position(userLocation)
+                                            .title(name).snippet(lastName)
+                                            .icon(BitmapDescriptorFactory.fromBitmap(scaledIcon))
+                                            .anchor(0.5f, 0.5f); // Para centrar el icono en la ubicación
+                                    temporalRealTimeMarkers.add(mMap.addMarker(markerOptions));
+                                }else{
+                                    markerOptions.position(new LatLng(latitud, longitud)).title(name).snippet(lastName);
+                                    temporalRealTimeMarkers.add(mMap.addMarker(markerOptions));
+                                }
+
+
+
+                            }
+                        }
+                        realTimaMarkers.clear();
+                        realTimaMarkers.addAll(temporalRealTimeMarkers);
+
+
+                    }
+                });
+
+
+
+
+
+
+
+
     }
 
 }

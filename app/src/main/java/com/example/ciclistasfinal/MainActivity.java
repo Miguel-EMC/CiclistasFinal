@@ -95,9 +95,7 @@ CardView ubicacionesCicl,registro;
                         FirebaseFirestore db = FirebaseFirestore.getInstance();
                         db.collection("users")
                                 .document(user.getUid())
-                                .collection("position")
-                                .document(user.getUid()+"Position")
-                                .set(positions)
+                                .update(positions)
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void unused) {
