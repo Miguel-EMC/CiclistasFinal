@@ -14,7 +14,7 @@ Aquí se muestra la funcionalidad que tiene el sistema presentado
 - Firebase
 - Express js
 - Android Studio (Java)
-- 
+- React
 ## Proceso
 
 - Sistema de Autenticación y Registro
