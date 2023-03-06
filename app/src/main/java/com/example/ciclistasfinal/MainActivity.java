@@ -1,7 +1,6 @@
 package com.example.ciclistasfinal;
 
 import android.Manifest;
-import android.util.Log;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -10,10 +9,10 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +28,10 @@ import com.google.firebase.auth.FirebaseUser;
 import io.github.muddz.styleabletoast.StyleableToast;
 
 public class MainActivity extends AppCompatActivity {
+
+//Para enviar una tarea a un conjunto de subprocesos, usa la interfaz (segundo plano)
+//    ExecutorService executorService = Executors.newFixedThreadPool(4);
+
 CardView ubicacionesCicl,registro;
     FirebaseAuth auth;
     Button button;
@@ -76,6 +79,7 @@ CardView ubicacionesCicl,registro;
                     public void onLocationChanged(Location location) {
                         location.getLatitude();
                         location.getLongitude();
+                        Log.d("TAG", "NEW");
                     }
 
                     @Override
@@ -140,6 +144,60 @@ CardView ubicacionesCicl,registro;
 
             });
         }
+
+//        //segundo plano
+//        // Result.java
+//        public abstract class Result<T> {
+//            private Result() {}
+//
+//            public static final class Success<T> extends Result<T> {
+//                public T data;
+//
+//                public Success(T data) {
+//                    this.data = data;
+//                }
+//            }
+//
+//            public static final class Error<T> extends Result<T> {
+//                public Exception exception;
+//
+//                public Error(Exception exception) {
+//                    this.exception = exception;
+//                }
+//            }
+//        }
+//
+//    // LoginRepository.java
+//    public class LoginRepository {
+//
+//        private final String loginUrl = "https://example.com/login";
+//        private final LoginResponseParser responseParser;
+//
+//        public LoginRepository(LoginResponseParser responseParser) {
+//            this.responseParser = responseParser;
+//        }
+//
+//        public Result<LoginResponse> makeLoginRequest(String jsonBody) {
+//            try {
+//                URL url = new URL(loginUrl);
+//                HttpURLConnection httpConnection = (HttpURLConnection) url.openConnection();
+//                httpConnection.setRequestMethod("POST");
+//                httpConnection.setRequestProperty("Content-Type", "application/json; charset=utf-8");
+//                httpConnection.setRequestProperty("Accept", "application/json");
+//                httpConnection.setDoOutput(true);
+//                httpConnection.getOutputStream().write(jsonBody.getBytes("utf-8"));
+//
+//                LoginResponse loginResponse = responseParser.parse(httpConnection.getInputStream());
+//                return new Result.Success<LoginResponse>(loginResponse);
+//            } catch (Exception e) {
+//                return new Result.Error<LoginResponse>(e);
+//            }
+//        }
+//    }
+
+
+
+
 
 
     }
