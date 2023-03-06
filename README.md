@@ -14,21 +14,30 @@ Aquí se muestra la funcionalidad que tiene el sistema presentado
 - Firebase
 - Express js
 - Android Studio (Java)
-- 
+- React
+
 ## Proceso
 
-- Sistema de Login
+- Sistema de Autenticación y Registro
+
+Se tiene una pantalla de registro para que los usuario llene con su información principal
+<p align="center"><a href="https://offhouse.vercel.app" target="_blank"><img src="https://github.com/Miguel-EMC/CiclistasFinal/blob/imagenes/app/src/main/res/drawable/register.jpg" width="300" alt="Laravel Logo"></a></p>
 
 Se ha desarrollado un sistema de login para validar a los usuarios. Este sistema garantiza la seguridad de los datos y proporciona una forma segura y confiable de acceder a la aplicación.
+<p align="center"><a href="https://offhouse.vercel.app" target="_blank"><img src="https://github.com/Miguel-EMC/CiclistasFinal/blob/imagenes/app/src/main/res/drawable/login.jpg" width="300" alt="Laravel Logo"></a></p>
+
 
 - Sistema de Administración 
 
 Se ha creado un sistema de administración para que los administradores puedan agregar, eliminar o desactivar usuarios. Esto proporciona un mayor control y flexibilidad en la gestión del sistema.
+<p align="center"><a href="https://offhouse.vercel.app" target="_blank"><img src="https://github.com/Miguel-EMC/CiclistasFinal/blob/imagenes/app/src/main/res/drawable/admin%20table.PNG" width="300" alt="Laravel Logo"></a></p>
+
 
 - Geolocalización en tiempo real
 
 Se utilizará OpenStreetMap o la técnica revisada de generar automáticamente el enlace de la geolocalización a medida que cambie la posición del ciclista. De esta manera, los usuarios de la aplicación podrán ver la ubicación exacta de los demás ciclistas en todo momento.
 
+<p align="center"><a href="https://offhouse.vercel.app" target="_blank"><img src="https://github.com/Miguel-EMC/CiclistasFinal/blob/imagenes/app/src/main/res/drawable/mapacicli.jpg" width="300" alt="Laravel Logo"></a></p>
 
 
 ## Créditos
