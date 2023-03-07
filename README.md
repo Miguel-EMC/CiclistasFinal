@@ -1,10 +1,17 @@
-<p align="center"><a href="https://offhouse.vercel.app" target="_blank"><img src="https://github.com/Miguel-EMC/CiclistasFinal/blob/master/app/src/main/res/drawable/logo.png" width="400" alt="Laravel Logo"></a></p>
+<p align="center"><img src="https://github.com/Miguel-EMC/CiclistasFinal/blob/master/app/src/main/res/drawable/logo.png" width="400" alt="Laravel Logo"></p>
 
-# BÚHO
+# <h1 align="center"> Examen de Aplicaciones Móviles </h1>
+
+## BÚHO
 
 El proyecto de desarrollo de software "El Búho" (Sistema Móvil) busca implementar una solución para hacer seguimiento en tiempo real de un grupo de ciclistas. La aplicación que se está desarrollando contará con un sistema de login para validar a los usuarios y garantizar la seguridad de los datos, un sistema de administración para que los administradores puedan agregar, eliminar o desactivar usuarios, y geolocalización en tiempo real para que los usuarios de la aplicación puedan ver la ubicación exacta de los demás ciclistas en todo momento.
 
+## :hammer: Autores
 
+- :godmode:[Dastin Chávez](https://github.com/Dustinouwu).
+- :rage2:[Miguel Muzo](https://github.com/Miguel-EMC).
+- :suspect:[Steven Guañuna](https://github.com/Seknys).
+- :hurtrealbad:[Kevin Pinanjota](https://github.com/kevinpinan).
 
 ## Manual de usuario
 Aquí se muestra la funcionalidad que tiene el sistema presentado
@@ -15,31 +22,34 @@ Aquí se muestra la funcionalidad que tiene el sistema presentado
 - Express js
 - Android Studio (Java)
 - React
+
 ## Proceso
 
 ### Sistema de Autenticación y Registro
 
-Se tiene una pantalla de registro para que los usuario llene con su información principal
-<p align="center"><img src="https://github.com/Miguel-EMC/CiclistasFinal/blob/imagenes/app/src/main/res/drawable/register.jpg" width="300" alt="Laravel Logo"></p>
+Se tiene una pantalla de registro para que los usuario llene con su información principal y además se tiene el Login o inicio de sesión de la aplicación, con la cual se podrá acceder a la funcionalidad que tiene la misma mediante l. 
 
-Se ha desarrollado un sistema de login para validar a los usuarios. Este sistema garantiza la seguridad de los datos y proporciona una forma segura y confiable de acceder a la aplicación.
-<p align="center"><img src="https://github.com/Miguel-EMC/CiclistasFinal/blob/imagenes/app/src/main/res/drawable/login.jpg" width="300" alt="Laravel Logo"></p>
-
+<table align="center">
+  <tr>
+    <td><img src="https://github.com/Miguel-EMC/CiclistasFinal/blob/imagenes/app/src/main/res/drawable/register.jpg" alt="Register" width="300"></td>
+    <td><img src="https://github.com/Miguel-EMC/CiclistasFinal/blob/imagenes/app/src/main/res/drawable/login.jpg" alt="Login" width="300"></td>
+  </tr>
+</table>
 
 ### Sistema de Administración 
 
 Se ha creado un sistema de administración para que los administradores puedan agregar, eliminar o desactivar usuarios. Esto proporciona un mayor control y flexibilidad en la gestión del sistema.
 
-Página principal del Administrador
+ - Página principal del Administrador 
 ![image](https://user-images.githubusercontent.com/74844624/223279069-2bd7c4ad-e0f8-4b44-8ca8-a603d95b4827.png)
 
-Buscador de tabla 
+ - Buscador de tabla  </br>
 ![image](https://user-images.githubusercontent.com/74844624/223278511-b823f58a-af0c-4396-b4f8-de4dcb61694d.png)
 
-Crear una cuenta ciclista o administrador </br>
+ - Crear una cuenta ciclista o administrador </br>
 ![image](https://user-images.githubusercontent.com/74844624/223279100-420e28cc-d7b7-41ec-b86d-7a5066172371.png)
 
-Prohibido acceder para usuarios que no sean administrador
+ - Prohibido acceder para usuarios que no sean administrador </br>
 ![image](https://user-images.githubusercontent.com/74844624/223279112-9df36de9-4651-466d-a6d4-700fff08a43c.png)
 
 
@@ -51,10 +61,10 @@ Se utilizará OpenStreetMap o la técnica revisada de generar automáticamente e
 
 ### Descarga de apk
 
-Se realiza la apk del proyecto para poder abrirla en un dispositivo móvil
+- Se realiza la apk del proyecto para poder abrirla en un dispositivo móvil
 <p align="center"><img src="https://github.com/Miguel-EMC/CiclistasFinal/blob/imagenes/app/src/main/res/drawable/descarga%20apk.jpg" width="300" alt="Laravel Logo"></p>
 
-Y por último se tiene la app corriendo
+- Y por último se tiene la app corriendo
 <p align="center"><img src="https://github.com/Miguel-EMC/CiclistasFinal/blob/imagenes/app/src/main/res/drawable/apk.jpg" width="300" alt="Laravel Logo"></p>
 
 ### Código Fuente
@@ -65,13 +75,13 @@ Y por último se tiene la app corriendo
 - Título de la Aplicación
 ![image](https://user-images.githubusercontent.com/74844624/223280648-8f12aa11-e4b9-423d-a13c-adba59bfb64d.png)
 
--Vista y Cards view de ubicaciones
+- Vista y Cards view de ubicaciones
 ![image](https://user-images.githubusercontent.com/74844624/223280720-8c054f54-5450-4b3a-a2f5-7831a1daf73c.png)
 
 - Vista de Login
 ![image](https://user-images.githubusercontent.com/74844624/223280728-b63be4bf-6463-4fe9-b9f6-110fca61112e.png)
 
--Carga de iconos de mapa
+- Carga de iconos de mapa
 ![image](https://user-images.githubusercontent.com/74844624/223280733-823e86c2-13f3-4393-8b5e-345a599a6088.png)
 
 - Código de colores de la aplicación
@@ -83,9 +93,4 @@ Y por último se tiene la app corriendo
 
 
 
-## Créditos
 
-- [Dastin Chávez](https://github.com/Dustinouwu).
-- [Miguel Muzo](https://github.com/Miguel-EMC).
-- [Steven Guañuna](https://github.com/Seknys).
-- [Kevin Pinanjota](https://github.com/kevinpinan).
